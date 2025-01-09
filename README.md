@@ -13,7 +13,7 @@ Nextcloud Plus is a custom nextcloud docker image based on the official nextclou
 
 </div>
 
-## Key Features
+## Key Changes
 
 - **FFmpeg**: Facilitates video processing.
 - **ImageMagick**: Offers advanced image manipulation.
