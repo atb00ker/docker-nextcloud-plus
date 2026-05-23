@@ -32,15 +32,15 @@ RUN set -ex; \
     apk add --no-cache --virtual .build-deps \
     $PHPIZE_DEPS \
     imap-dev \
+    krb5-dev \
     openssl-dev \
     samba-dev \
     bzip2-dev \
     ; \
     \
-    docker-php-ext-install \
-    bz2 \
-    imap \
-    ; \
+    docker-php-ext-install bz2; \
+    PHP_OPENSSL=yes pecl install imap; \
+    docker-php-ext-enable imap; \
     pecl install smbclient; \
     docker-php-ext-enable smbclient; \
     \
