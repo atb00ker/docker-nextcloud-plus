@@ -52,3 +52,9 @@ RUN set -ex; \
     )"; \
     apk add --virtual .nextcloud-phpext-rundeps $runDeps; \
     apk del .build-deps
+
+RUN apk add --no-cache shadow \
+    && usermod -u 1000 www-data \
+    && groupmod -g 1000 www-data \
+    && find / -xdev -user 82 -exec chown 1000 {} + \
+    && find / -xdev -group 82 -exec chgrp 1000 {} +
